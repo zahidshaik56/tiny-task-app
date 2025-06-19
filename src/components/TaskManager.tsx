@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Task, FilterType } from '@/types/task';
 import TaskInput from './TaskInput';
@@ -69,19 +68,19 @@ const TaskManager = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
+    <div className="p-4">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <CheckCircle className="w-8 h-8 text-blue-500" />
-            <h1 className="text-4xl font-bold text-gray-800">Task Manager</h1>
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white">Your Tasks</h2>
           </div>
-          <p className="text-gray-600 text-lg">Stay organized and get things done</p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg">Stay organized and get things done</p>
         </div>
 
         {/* Main Container */}
-        <div className="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700">
           <TaskInput onAddTask={addTask} />
           
           <TaskFilter
@@ -94,14 +93,14 @@ const TaskManager = () => {
           <div className="space-y-3">
             {filteredTasks.length === 0 ? (
               <div className="text-center py-12">
-                <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-full flex items-center justify-center">
-                  <CheckCircle className="w-12 h-12 text-gray-400" />
+                <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center">
+                  <CheckCircle className="w-12 h-12 text-gray-400 dark:text-gray-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-600 mb-2">
+                <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-300 mb-2">
                   {filter === 'completed' ? 'No completed tasks yet' :
                    filter === 'active' ? 'No active tasks' : 'No tasks yet'}
                 </h3>
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-gray-400">
                   {filter === 'all' ? 'Add a task above to get started' : 
                    `Switch to "All Tasks" to see your ${filter === 'completed' ? 'active' : 'completed'} tasks`}
                 </p>
@@ -125,13 +124,13 @@ const TaskManager = () => {
 
           {/* Stats Footer */}
           {tasks.length > 0 && (
-            <div className="mt-6 pt-6 border-t border-gray-200">
-              <div className="flex items-center justify-between text-sm text-gray-600">
+            <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-600">
+              <div className="flex items-center justify-between text-sm text-gray-600 dark:text-gray-300">
                 <span>
                   {taskCounts.completed} of {taskCounts.all} tasks completed
                 </span>
                 <div className="flex items-center gap-2">
-                  <div className="w-20 h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-20 h-2 bg-gray-200 dark:bg-gray-600 rounded-full overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-blue-500 to-green-500 transition-all duration-500"
                       style={{

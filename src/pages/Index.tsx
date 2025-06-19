@@ -1,8 +1,19 @@
 
+import React from 'react';
 import TaskManager from '@/components/TaskManager';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const Index = () => {
-  return <TaskManager />;
+  return (
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <Navbar />
+      <main className="flex-1">
+        <TaskManager />
+      </main>
+      <Footer />
+    </div>
+  );
 };
 
 export default Index;
